@@ -199,3 +199,12 @@ def lint(session: Session) -> None:
             silent=False,
         )
         session.run("pylint", *python_files, silent=False)
+
+
+# -----------------------------------------------------------------------------
+# Deploy
+# -----------------------------------------------------------------------------
+@nox.sessio(venv_backend="none")
+def deploy(session: Session) -> None:
+    session.run("python", "setup.py", "sdist", "upload", "-r", "pypi")
+

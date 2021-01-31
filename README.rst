@@ -27,7 +27,7 @@ Installation
 ------------
 
 The first prerequisite is to have `Python
-3.7 <https://www.python.org/downloads/>`__ and
+3.6, 3.7 or 3.8 <https://www.python.org/downloads/>`__ and
 `pip <https://pypi.org/project/pip/>`__ installed on the system. It is
 recommended to create a virtual environment to isolate the used package
 versions. For more information about
@@ -69,11 +69,11 @@ commands (depending on the interpreter) (obtained from the official
 Platform Shell           Command to activate virtual environment
 ======== =============== =======================================
 POSIX    bash/zsh        ``$ source <venv>/bin/activate``
-\        fish            ``$ . <venv>/bin/activate.fish``
-\        csh/tcsh        ``$ source <venv>/bin/activate.csh``
-\        PowerShell Core ``$ <venv>/bin/Activate.ps1``
+         fish            ``$ . <venv>/bin/activate.fish``
+         csh/tcsh        ``$ source <venv>/bin/activate.csh``
+         PowerShell Core ``$ <venv>/bin/Activate.ps1``
 Windows  cmd.exe         ``C:\> <venv>\Scripts\activate.bat``
-\        PowerShell      ``PS C:\> <venv>\Scripts\Activate.ps1``
+         PowerShell      ``PS C:\> <venv>\Scripts\Activate.ps1``
 ======== =============== =======================================
 
 Table 1.1: *Activating the virtual environment.*
@@ -196,21 +196,5 @@ Utilidades
 Licencia
 --------
 
-The original code can be found in the
-`DeepGProp <https://github.com/lulivi/deep-g-prop>`__ repo.
-
-.. raw:: html
-
-   <!-- Archivos -->
-
-.. raw:: html
-
-   <!-- Misceláneo -->
-
-.. raw:: html
-
-   <!-- Frameworks y utilidades -->
-
-.. raw:: html
-
-   <!-- Insignias -->
+The original code can be found in the `DeepGProp
+<https://github.com/lulivi/dgp-lib>`__ repo under GPLv3 License.

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 VERSION = "1.0.5"
-LONG_DESC = open("README.md", encoding="utf-8").read()
+LONG_DESC = open("README.rst", encoding="utf-8").read()
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/v{VERSION}"
 
 setup(
@@ -10,7 +10,6 @@ setup(
     author="Luis Liñán",
     author_email="luislivilla@gmail.com",
     description="Train Multilayer Perceptrons with Genetic Algorithms.",
-    long_description_content_type="text/markdown",
     long_description=LONG_DESC,
     license="GPLv3",
     url="https://github.com/lulivi/dgp-lib",

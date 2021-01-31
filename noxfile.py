@@ -6,29 +6,22 @@ from pathlib import Path
 from shutil import rmtree
 from typing import Callable, Dict, Iterator, List
 
-from nox import options, sessions
+from nox import options, session
 from nox.sessions import Session
 
 # Configure nox
-nox.options.sessions = ["test", "lint"]
-nox.options.reuse_existing_virtualenvs = True
-nox.options.default_venv_backend = "venv"
+options.sessions = ["test", "lint"]
+options.reuse_existing_virtualenvs = True
+options.default_venv_backend = "venv"
 
 # Globals
-ROOT = Path(__file___).parent.resolve(strict=True)
+ROOT = Path(__file__).parent.resolve(strict=True)
 REQUIREMENTS_DIR_PATH = (ROOT / "requirements").resolve(strict=True)
 form_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "format.txt")]
 test_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "tests.txt")]
+lint_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "lint.txt")]
 prod_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "prod.txt")]
-mlp_frameworks_requirements = [
-    "-r",
-    str(REQUIREMENTS_DIR_PATH / "mlp_frameworks.txt"),
-]
-hp_optimization_requirements = [
-    "-r",
-    str(REQUIREMENTS_DIR_PATH / "hp_optimization.txt"),
-]
-python_files = ["noxfile.py", "src", "tests"]
+python_files = ["src", "tests"]
 
 
 # -----------------------------------------------------------------------------
@@ -67,7 +60,7 @@ def remove_files(
     list(map(partial(remove_file, func_logger=func_logger), path_list,))
 
 
-@nox.session(name="clean-py")
+@session(name="clean-py")
 def clean_py(session: Session) -> None:
     """Celean python cache files.
 
@@ -126,17 +119,12 @@ def chdir(session: Session, dir_path: Path) -> Iterator[Path]:
 # -----------------------------------------------------------------------------
 # Tests
 # -----------------------------------------------------------------------------
-@nox.session(python="3.7")
+@session(python="3.7")
 def test(session: Session) -> None:
     """Run the source code related tests."""
     test_path = session.posargs[0] if session.posargs else str(ROOT / "tests")
     session.log("Running tests!")
-    session.install(
-        *test_requirements,
-        *mlp_frameworks_requirements,
-        *hp_optimization_requirements,
-        env={"TMPDIR": "/var/tmp"},
-    )
+    session.install(*test_requirements,)
     session.run(
         "pytest",
         test_path,
@@ -150,7 +138,7 @@ def test(session: Session) -> None:
 # -----------------------------------------------------------------------------
 # Format
 # -----------------------------------------------------------------------------
-@nox.session(name="format")
+@session(name="format")
 def apply_format(session: Session) -> None:
     """Apply formating rules to the selected files."""
     session.install(*form_requirements)
@@ -161,15 +149,11 @@ def apply_format(session: Session) -> None:
 # -----------------------------------------------------------------------------
 # Lint
 # -----------------------------------------------------------------------------
-@nox.session()
+@session()
 def lint(session: Session) -> None:
     """Lint the selected files."""
     session.install(
-        *test_requirements,
-        *mlp_frameworks_requirements,
-        *hp_optimization_requirements,
-        "nox==2020.5.24",
-        env={"TMPDIR": "/var/tmp"},
+        *lint_requirements, "nox==2020.5.24",
     )
     with chdir(session, ROOT):
         session.run("mypy", *python_files, silent=False)
@@ -204,7 +188,7 @@ def lint(session: Session) -> None:
 # -----------------------------------------------------------------------------
 # Deploy
 # -----------------------------------------------------------------------------
-@nox.sessio(venv_backend="none")
+@session(venv_backend="none")
 def deploy(session: Session) -> None:
+    """Deploy the package to PYPI."""
     session.run("python", "setup.py", "sdist", "upload", "-r", "pypi")
-

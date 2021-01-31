@@ -91,7 +91,7 @@ def individual_evaluator(
         model.layers[layer_index].set_weights([layer.weights, layer.bias])
 
     model.compile(
-        optimizer=SGD(learning_rate=0.01), # This learning rate can be changed? Optimized?
+        optimizer=SGD(learning_rate=0.01),
         loss=CategoricalCrossentropy()
         if multi_class
         else BinaryCrossentropy(),
@@ -378,7 +378,6 @@ def configure_toolbox(
     # --------------------------------
     DGPLOGGER.debug("-- Register necessary functions and elements")
     DGPLOGGER.debug("Register the fitness measure...")
-#    creator.create("FitnessMulti", base.Fitness, weights=(-1.0, -0.5, 0.5))
     creator.create("FitnessMulti", base.Fitness, weights=(-1.0, -0.01, 0.5))
 
     DGPLOGGER.debug("Register the individual...")

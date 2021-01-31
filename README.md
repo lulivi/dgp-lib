@@ -7,14 +7,16 @@
 
 ## Index
 
-- [Installation](#installation)
-  - [Virtual environment creation](#virtual-environment-creation)
-  - [Installing the DeepGProp CLI](#installing-the-deepgprop-cli)
-  - [Extra modules](#extra-modules)
-- [Tests and formatting](#tests-and-formatting)
-- [Frameworks](#frameworks)
-- [Utilidades](#utilidades)
-- [Licencia](#licencia)
+- [Final Degree Project: *DeepGProp*](#final-degree-project-deepgprop)
+  - [Index](#index)
+  - [Installation](#installation)
+    - [Virtual environment creation](#virtual-environment-creation)
+    - [Installing the DeepGProp CLI](#installing-the-deepgprop-cli)
+    - [Extra modules](#extra-modules)
+  - [Tests and formatting](#tests-and-formatting)
+  - [Frameworks](#frameworks)
+  - [Utilidades](#utilidades)
+  - [Licencia](#licencia)
 
 ---
 
@@ -50,7 +52,7 @@ that's been done, we need to activate it; use one of the following
 commands (depending on the interpreter) (obtained from the official
 [venv] documentation):
 
-| Platform |      Shell      | Command to activate virtual environment |
+| Platform |           Shell | Command to activate virtual environment |
 | :------: | --------------: | --------------------------------------- |
 |  POSIX   |        bash/zsh | `$ source <venv>/bin/activate`          |
 |          |            fish | `$ . <venv>/bin/activate.fish`          |
@@ -67,16 +69,23 @@ Table 1.1: *Activating the virtual environment.*
 
 ### Installing the DeepGProp CLI
 
-To run DeepGProp first we need to install its cli. For that, run the following
-command:
+To run DeepGProp first we need to install its cli. You can install it with 
+`pip`:
+
+
+```shell
+pip install -U dgp-lib
+```
+
+Or downloading the repository with:
 
 ```shell
 pip install .
 ```
 
-On the other hand, if we want the code to be updated as we change it, we will need to install
-DeepGProp in editable mode. To do this, we need to add the option
-`-e/--editable` to the installation command
+On the other hand, if we want the code to be updated as we change it, we will
+need to install DeepGProp in editable mode. To do this, we need to add the
+option `-e/--editable` to the installation command:
 
 ```shell
 pip install -e .
@@ -87,16 +96,16 @@ can run `dgp --help` to list the available options.
 
 ### Extra modules
 
-He dividido los paquetes utilizados en el proyecto en distintos grupos para
-evitar instalar librerías no deseadas si vamos a realizar tareas concretas
-(como construir la documentación o ejecutar cierto módulo):
+I've divided all the used packages in different groups to avoid installing
+undesirable ones for specific use of the repository:
 
-|          Purpose          |              File path               |                                      Description                                      |
-| ------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------- |
-| Production                | [`requirements/prod.txt`]            | Necessary packages to run *DeepGProp*. The previous subsection already install this.  |
-| Test                      | [`requirements/tests.txt`]           | Necessary packages for tests. [Nox] installs them automaticly when running the tests. |
-| Optimizers comparison     | [`requirements/hp_optimization.txt`] | Packages used for the hyper-parametter optimizers comparison.                         |
-| MLP Frameworks comparison | [`requirements/mlp_frameworks.txt`]  | Packages used for the neural net frameworks comparison.                               |
+| Purpose    | File path                   | Description                                                                                     |
+| ---------- | --------------------------- | ----------------------------------------------------------------------------------------------- |
+| Production | [`requirements/prod.txt`]   | Necessary packages to run *DeepGProp*. The previous subsection already install this.            |
+| Test       | [`requirements/tests.txt`]  | Necessary packages for tests. [Nox] installs them automaticly when running the tests.           |
+| Lint       | [`requirements/lint.txt`]   | Necessary packages for linting. [Nox] installs them automaticly when linting the code.          |
+| Format     | [`requirements/format.txt`] | Necessary packages for formatting. [Nox] installs them automaticly when running format command. |
+| Dev        | [`requirements/dev.txt`]    | All above packages.                                                                             |
 
 To install any of these packages you can run:
 

@@ -125,7 +125,7 @@ def genetic_algorithm(
             best_population_individuals = tools.selBest(
                 population, int(len(population) / 2)
             )
-            # Again here, how are they selected? If it's error, they are going to be the worst - JJ
+
             # Clone the selected individuals
             offspring = list(map(toolbox.clone, best_population_individuals))
 
@@ -156,8 +156,6 @@ def genetic_algorithm(
             DGPLOGGER.debug(
                 f"    -- Evaluating {len(invalid_ind)} individuals."
             )
-#            evaluate_population(invalid_ind, toolbox.evaluate)
-#            DGPLOGGER.info(f"    -- Evaluated {len(invalid_ind)} individuals.")
 
             # Replace the worst individuals from the previous population with
             # the mutated ones. In other words, create the new offspring
@@ -184,9 +182,10 @@ def genetic_algorithm(
     test_individual(
         best_initial_individual, dataset, "Best initial individual"
     )
-#    best_final_individual = tools.selBest(population, 1)[0]
     for i in range(15):
-        DGPLOGGER.info(f"-------------------------- Test #{i} --------------------------")
-        test_individual(best_final_individual, dataset, "Best final individual")
+        DGPLOGGER.info(f"-------------------- Test #{i} --------------------")
+        test_individual(
+            best_final_individual, dataset, "Best final individual"
+        )
 
     return best_initial_individual, best_final_individual

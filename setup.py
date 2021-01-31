@@ -1,7 +1,7 @@
 import setuptools
 
-VERSION = "v1.0.0"
-LONG_DESC = open("README.md").read()
+VERSION = "1.0.1"
+LONG_DESC = open("README.md", encoding="utf-8").read()
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/{VERSION}"
 REQUIREMENTS = open("requirements/prod.txt").read().splitlines()
 
@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     long_description=LONG_DESC,
     license="GPLv3",
-    url="https://github.com/lulivi/deep-g-prop",
+    url="https://github.com/lulivi/dgp-lib",
     download_url=DOWNLOAD,
     classifiers=[
         "Environment :: X11 Applications",

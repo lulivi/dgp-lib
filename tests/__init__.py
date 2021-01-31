@@ -1,1 +1,1 @@
-"""Test module for the ``src`` module contents."""
+"""Test module for the ``dgp`` module contents."""

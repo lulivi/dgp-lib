@@ -8,10 +8,10 @@ import numpy as np
 
 from deap import tools
 
-from src.dgp_logger import DGPLOGGER
-from src.ga_optimizer.toolbox import configure_toolbox
-from src.ga_optimizer.types import MLPIndividual
-from src.ga_optimizer.utils import (
+from dgp.dgp_logger import DGPLOGGER
+from dgp.ga_optimizer.toolbox import configure_toolbox
+from dgp.ga_optimizer.types import MLPIndividual
+from dgp.ga_optimizer.utils import (
     apply_crossover,
     apply_mutation,
     evaluate_population,
@@ -19,7 +19,7 @@ from src.ga_optimizer.utils import (
     finished_generation_summary,
     test_individual,
 )
-from src.utils import Proben1Partition
+from dgp.utils import Proben1Partition
 
 __all__ = ["genetic_algorithm", "MLPIndividual", "test_individual"]
 

@@ -14,9 +14,9 @@ import numpy as np
 from deap import base, creator, tools
 from sklearn.metrics import accuracy_score, fbeta_score
 
-from src.dgp_logger import DGPLOGGER
-from src.ga_optimizer.types import Layer, MLPIndividual
-from src.utils import Proben1Partition, Proben1Split
+from dgp.dgp_logger import DGPLOGGER
+from dgp.ga_optimizer.types import Layer, MLPIndividual
+from dgp.utils import Proben1Partition, Proben1Split
 
 environ["KERAS_BACKEND"] = "theano"
 

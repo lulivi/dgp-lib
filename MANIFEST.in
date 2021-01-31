@@ -1,1 +1,1 @@
-include src/datasets/proben1/*
+include dgp/datasets/proben1/*

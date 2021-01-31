@@ -1,4 +1,4 @@
-"""Test the :mod:`src.dataset_to_proben1` module."""
+"""Test the :mod:`dgp.dataset_to_proben1` module."""
 import unittest
 
 from pathlib import Path
@@ -6,8 +6,8 @@ from unittest import mock
 
 from click.testing import CliRunner
 
-from src.dataset_to_proben1 import cli
-from src.settings import PROBEN1_DIR_PATH
+from dgp.dataset_to_proben1 import cli
+from dgp.settings import PROBEN1_DIR_PATH
 
 
 class TestDatasetToProben1(unittest.TestCase):
@@ -21,13 +21,13 @@ class TestDatasetToProben1(unittest.TestCase):
 
         self.assertEqual(result.exit_code, 2, result.stdout)
 
-    @mock.patch("src.dataset_to_proben1.np")
+    @mock.patch("dgp.dataset_to_proben1.np")
     def test_cli_ok(self, mock_np):
         """Dataset is found."""
         mock_np.split.return_value = ("train", "validation", "test")
         runner = CliRunner()
-        with mock.patch("src.dataset_to_proben1.pd"):
-            with mock.patch("src.dataset_to_proben1.shuffle"):
+        with mock.patch("dgp.dataset_to_proben1.pd"):
+            with mock.patch("dgp.dataset_to_proben1.shuffle"):
                 result = runner.invoke(
                     cli, [str(PROBEN1_DIR_PATH / "spambase.csv")]
                 )

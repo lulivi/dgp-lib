@@ -1,7 +1,5 @@
 #!/bin/bash
 
+SCRIPTPATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-for i in {1..15}
-do
-   dgp -d minih -ip 64 -mg 64
-done
+$SCRIPTPATH/run-experiment.sh minih

@@ -21,7 +21,7 @@ form_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "format.txt")]
 test_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "tests.txt")]
 lint_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "lint.txt")]
 prod_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "prod.txt")]
-python_files = ["src", "tests"]
+python_files = ["dgp", "tests"]
 
 
 # -----------------------------------------------------------------------------
@@ -128,7 +128,7 @@ def test(session: Session) -> None:
     session.run(
         "pytest",
         test_path,
-        f"--cov={str(ROOT / 'src')}",
+        f"--cov={str(ROOT / 'dgp')}",
         "--cov-report=term-missing",
         "-vvv",
         silent=False,

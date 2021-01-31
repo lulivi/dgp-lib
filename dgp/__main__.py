@@ -3,11 +3,11 @@ from typing import Tuple
 
 import click
 
-from src.dgp_logger import DGPLOGGER
-from src.ga_optimizer import genetic_algorithm
-from src.proben import Proben1Partition
-from src.settings import SEED
-from src.utils import (
+from dgp.dgp_logger import DGPLOGGER
+from dgp.ga_optimizer import genetic_algorithm
+from dgp.proben import Proben1Partition
+from dgp.settings import SEED
+from dgp.utils import (
     DatasetNotFoundError,
     print_data_summary,
     read_proben1_partition,
@@ -34,7 +34,7 @@ DEF_VERBOSITY = "info"
     type=click.STRING,
     default=DEF_DATASET_NAME,
     help=(
-        "name of the proben1 partition located in src/datasets/. Default: "
+        "name of the proben1 partition located in dgp/datasets/. Default: "
         f"'{DEF_DATASET_NAME}'"
     ),
 )

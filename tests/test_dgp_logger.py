@@ -1,9 +1,9 @@
-"""Test the :mod:`src.dgp_logger` module."""
+"""Test the :mod:`dgp.dgp_logger` module."""
 import unittest
 
 from unittest import mock
 
-from src.dgp_logger import DGPLogger
+from dgp.dgp_logger import DGPLogger
 
 
 class TestDGPLogger(unittest.TestCase):
@@ -15,7 +15,7 @@ class TestDGPLogger(unittest.TestCase):
         custom_logger = DGPLogger("test")
         self.assertListEqual(custom_logger.handlers, [])
 
-        with mock.patch("src.dgp_logger.super") as mock_super:
+        with mock.patch("dgp.dgp_logger.super") as mock_super:
             custom_logger._log(
                 level="level", msg="this is a multiline\nstring", args=[]
             )
@@ -23,7 +23,7 @@ class TestDGPLogger(unittest.TestCase):
         self.assertEqual(mock_super.return_value._log.call_count, 2)
 
     @staticmethod
-    @mock.patch("src.dgp_logger.getLevelName")
+    @mock.patch("dgp.dgp_logger.getLevelName")
     def test_sep(mock_get_level):
         """Test the sep printer method."""
         mock_get_level.return_value = 28
@@ -33,7 +33,7 @@ class TestDGPLogger(unittest.TestCase):
 
         custom_logger.log.assert_called_with(28, "*" * 79)
 
-    @mock.patch("src.dgp_logger.getLevelName")
+    @mock.patch("dgp.dgp_logger.getLevelName")
     def test_title(self, mock_get_level):
         """Test the thitle printer method."""
         mock_get_level.return_value = 28
@@ -44,10 +44,10 @@ class TestDGPLogger(unittest.TestCase):
         custom_logger.log.assert_any_call(28, "message")
         self.assertEqual(custom_logger.log.call_count, 3)
 
-    @mock.patch("src.dgp_logger.datetime")
-    @mock.patch("src.dgp_logger.getLevelName")
-    @mock.patch("src.dgp_logger.FileHandler")
-    @mock.patch("src.dgp_logger.StreamHandler")
+    @mock.patch("dgp.dgp_logger.datetime")
+    @mock.patch("dgp.dgp_logger.getLevelName")
+    @mock.patch("dgp.dgp_logger.FileHandler")
+    @mock.patch("dgp.dgp_logger.StreamHandler")
     def test_configure_dgp_logger(
         self, mock_stream, mock_file, mock_get_level, mock_datetime
     ):

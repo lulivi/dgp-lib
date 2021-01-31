@@ -1,12 +1,12 @@
-"""Test the :mod:`src.utils` module."""
+"""Test the :mod:`dgp.utils` module."""
 import unittest
 
 from unittest import mock
 
 import numpy as np
 
-from src import utils
-from src.settings import PROBEN1_DIR_PATH
+from dgp import utils
+from dgp.settings import PROBEN1_DIR_PATH
 
 
 class Proben1Tests(unittest.TestCase):
@@ -67,7 +67,7 @@ class Proben1Tests(unittest.TestCase):
             )
 
     @staticmethod
-    @mock.patch("src.utils.tabulate")
+    @mock.patch("dgp.utils.tabulate")
     def test_print_table(mock_tabulate):
         """Test the table printer."""
         table_data = [

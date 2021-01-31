@@ -1,12 +1,12 @@
-"""Test the :mod:`src.ga_optimizer` module."""
+"""Test the :mod:`dgp.ga_optimizer` module."""
 import unittest
 
 from unittest import mock
 
 import numpy as np
 
-from src import ga_optimizer
-from src.utils import read_proben1_partition
+from dgp import ga_optimizer
+from dgp.utils import read_proben1_partition
 
 
 class TestLayer(unittest.TestCase):
@@ -89,7 +89,7 @@ class TestLayer(unittest.TestCase):
 class TestMLPIndividual(unittest.TestCase):
     """Tests for the MLPIndividual class."""
 
-    @mock.patch("src.ga_optimizer.types.Layer")
+    @mock.patch("dgp.ga_optimizer.types.Layer")
     def test_init(self, mock_layer):
         """Test the constructor."""
         test_in = 3

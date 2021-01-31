@@ -1,7 +1,9 @@
 #!/bin/bash
 
+dataset="$1"
 
 for i in {1..15}
 do
-   dgp -d $1 -ip 64 -mg 32
+   SEED="$(date +%s%N | cut -b14-19)"
+   dgp -d "$dataset" -ip 64 -mg 32 -s $SEED
 done

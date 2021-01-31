@@ -7,11 +7,11 @@ import numpy as np
 
 from deap import base
 
-from src.dgp_logger import DGPLOGGER
-from src.ga_optimizer.toolbox import individual_evaluator
-from src.ga_optimizer.types import MLPIndividual
-from src.proben import Proben1Partition
-from src.utils import print_table
+from dgp.dgp_logger import DGPLOGGER
+from dgp.ga_optimizer.toolbox import individual_evaluator
+from dgp.ga_optimizer.types import MLPIndividual
+from dgp.proben import Proben1Partition
+from dgp.utils import print_table
 
 
 def evaluate_population(population: list, evaluate_fn: Callable) -> None:

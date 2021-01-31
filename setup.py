@@ -1,9 +1,8 @@
 import setuptools
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 LONG_DESC = open("README.md", encoding="utf-8").read()
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/v{VERSION}"
-REQUIREMENTS = open("requirements.txt").read().splitlines()
 
 setuptools.setup(
     name="DeepGProp",
@@ -33,6 +32,15 @@ setuptools.setup(
         ]
     },
     python_requires=">=3.6",
-    install_requires=REQUIREMENTS,
+    install_requires=[
+        "numpy==1.18.2",
+        "pandas==1.0.3",
+        "deap==1.3.1",
+        "scikit-learn==0.22.2.post1",
+        "Theano-PyMC==1.0.10",
+        "Keras==2.3.1",
+        "click==7.1.2",
+        "tabulate==0.8.7",
+    ],
     test_suite="tests",
 )

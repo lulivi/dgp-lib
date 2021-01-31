@@ -1,4 +1,4 @@
--r ../requirements.txt
+-e .
 -r tests.txt
 -r format.txt
 -r lint.txt

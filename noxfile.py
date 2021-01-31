@@ -20,7 +20,6 @@ REQUIREMENTS_DIR_PATH = (ROOT / "requirements").resolve(strict=True)
 form_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "format.txt")]
 test_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "tests.txt")]
 lint_requirements = ["-r", str(REQUIREMENTS_DIR_PATH / "lint.txt")]
-prod_requirements = ["-r", "requirements.txt"]
 python_files = ["dgp", "tests"]
 
 

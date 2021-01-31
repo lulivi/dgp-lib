@@ -56,9 +56,9 @@ been working since version 3.3
 
 ..
 
-   Please make sure when you do this that all ``__pycache__``
-   directories have been deleted; otherwise, it might fail in some
-   unexpected place.
+Please make sure when you do this that all ``__pycache__``
+directories have been deleted; otherwise, it might fail in some
+unexpected place.
 
 This will create a virtual environment in the ``.venv`` directory. Once
 that’s been done, we need to activate it; use one of the following
@@ -78,9 +78,9 @@ Windows  cmd.exe         ``C:\> <venv>\Scripts\activate.bat``
 
 Table 1.1: *Activating the virtual environment.*
 
-   You won’t need to create the virtual environment in the case you’re
-   using global installation of modules via version managers such as
-   ``pyenv``.
+You won’t need to create the virtual environment in the case you’re
+using global installation of modules via version managers such as
+``pyenv``.
 
 Installing the DeepGProp CLI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,32 +115,19 @@ Extra modules
 I’ve divided all the used packages in different groups to avoid
 installing undesirable ones for specific use of the repository:
 
-+----+-------------+--------------------------------------------------+
-| P  | File path   | Description                                      |
-| ur |             |                                                  |
-| po |             |                                                  |
-| se |             |                                                  |
-+====+=============+==================================================+
-| Te | ``          | Necessary packages for tests.                    |
-| st | `requiremen | `Nox <https://nox.thea.codes/en/stable/>`__      |
-|    | ts/tests.tx | installs them automaticly when running the       |
-|    | t`` <./requ | tests.                                           |
-|    | irements/te |                                                  |
-|    | sts.txt>`__ |                                                  |
-+----+-------------+--------------------------------------------------+
-| Li | [``re       | Necessary packages for linting.                  |
-| nt | quirements/ | `Nox <https://nox.thea.codes/en/stable/>`__      |
-|    | lint.txt``] | installs them automaticly when linting the code. |
-+----+-------------+--------------------------------------------------+
-| Fo | [``requ     | Necessary packages for formatting.               |
-| rm | irements/fo | `Nox <https://nox.thea.codes/en/stable/>`__      |
-| at | rmat.txt``] | installs them automaticly when running format    |
-|    |             | command.                                         |
-+----+-------------+--------------------------------------------------+
-| D  | [``r        | All above packages.                              |
-| ev | equirements |                                                  |
-|    | /dev.txt``] |                                                  |
-+----+-------------+--------------------------------------------------+
++---------+-------------------------+--------------------------------------------------------------------------------------------------+
+| Purpose | File path               | Description                                                                                      |
++=========+=========================+==================================================================================================+
+| Test    | requirements/tests.txt  | Necessary packages for tests. `Nox`_ installs them automaticly when running the tests.           |
++---------+-------------------------+--------------------------------------------------------------------------------------------------+
+| Lint    | requirements/lint.txt   | Necessary packages for linting. `Nox`_ installs them automaticly when linting the code.          |
++---------+-------------------------+--------------------------------------------------------------------------------------------------+
+| Format  | requirements/format.txt | Necessary packages for formatting. `Nox`_ installs them automaticly when running format command. |
++---------+-------------------------+--------------------------------------------------------------------------------------------------+
+| Dev     | requirements/dev.txt    | All above packages.                                                                              |
++---------+-------------------------+--------------------------------------------------------------------------------------------------+
+
+.. _Nox: https://nox.thea.codes/en/stable
 
 To install any of these packages you can run:
 

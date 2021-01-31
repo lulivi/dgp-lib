@@ -197,5 +197,6 @@ def create_dist(session: Session):
 def deploy(session: Session) -> None:
     """Deploy the package to PYPI."""
     show_help(session, {"test": "Use testpypi instead of pypi repository."})
+    create_dist(session)
     repository = "testpypi" if "test" in session.posargs else "pypi"
     session.run("twine", "upload", "-r", repository, f"dist/*")

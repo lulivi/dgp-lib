@@ -7,16 +7,15 @@
 
 ## Index
 
-- [Final Degree Project: *DeepGProp*](#final-degree-project-deepgprop)
-  - [Index](#index)
-  - [Installation](#installation)
-    - [Virtual environment creation](#virtual-environment-creation)
-    - [Installing the DeepGProp CLI](#installing-the-deepgprop-cli)
-    - [Extra modules](#extra-modules)
-  - [Tests and formatting](#tests-and-formatting)
-  - [Frameworks](#frameworks)
-  - [Utilidades](#utilidades)
-  - [Licencia](#licencia)
+- [Index](#index)
+- [Installation](#installation)
+  - [Virtual environment creation](#virtual-environment-creation)
+  - [Installing the DeepGProp CLI](#installing-the-deepgprop-cli)
+  - [Extra modules](#extra-modules)
+- [Tests and formatting](#tests-and-formatting)
+- [Frameworks](#frameworks)
+- [Utilidades](#utilidades)
+- [Licencia](#licencia)
 
 ---
 

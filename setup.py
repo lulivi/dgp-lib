@@ -1,6 +1,6 @@
 import setuptools
 
-VERSION = "v1.0.0"
+VERSION = "v1.0.1"
 LONG_DESC = open("README.md").read()
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/{VERSION}"
 REQUIREMENTS = open("requirements/prod.txt").read().splitlines()

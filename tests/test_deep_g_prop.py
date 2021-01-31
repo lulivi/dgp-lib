@@ -1,4 +1,4 @@
-"""Test the :mod:`dgp.deep_g_prop` module."""
+"""Test the :mod:`dgp.__main__` module."""
 import unittest
 
 from unittest import mock
@@ -11,23 +11,23 @@ from dgp.__main__ import cli
 class TestDeepGPropCli(unittest.TestCase):
     """Tests for the DeepGProp CLI."""
 
-    @mock.patch("dgp.deep_g_prop.DGPLOGGER")
+    @mock.patch("dgp.__main__.DGPLOGGER")
     def test_cli_dataset_not_found(self, mock_dgplogger):
         """Non existen dataset."""
         dataset_name = "nonexistent"
         runner = CliRunner()
-        with mock.patch("dgp.deep_g_prop.genetic_algorithm"):
+        with mock.patch("dgp.__main__.genetic_algorithm"):
             result = runner.invoke(cli, ["--dataset-name", dataset_name])
 
         self.assertEqual(result.exit_code, 2, result.stdout)
         mock_dgplogger.configure_dgp_logger.assert_not_called()
 
-    @mock.patch("dgp.deep_g_prop.DGPLOGGER")
+    @mock.patch("dgp.__main__.DGPLOGGER")
     def test_cli_wrong_neurons_range(self, mock_dgplogger):
         """Non valid neurons range."""
         test_neurons_range = -2, 7
         runner = CliRunner()
-        with mock.patch("dgp.deep_g_prop.genetic_algorithm"):
+        with mock.patch("dgp.__main__.genetic_algorithm"):
             result = runner.invoke(
                 cli, ["--neurons-range", *test_neurons_range]
             )
@@ -35,18 +35,18 @@ class TestDeepGPropCli(unittest.TestCase):
         self.assertEqual(result.exit_code, 2, result.stdout)
         mock_dgplogger.configure_dgp_logger.assert_not_called()
 
-    @mock.patch("dgp.deep_g_prop.DGPLOGGER")
+    @mock.patch("dgp.__main__.DGPLOGGER")
     def test_cli_wrong_layers_range(self, mock_dgplogger):
         """Non valid layers range."""
         test_layers_range = 2, 1
         runner = CliRunner()
-        with mock.patch("dgp.deep_g_prop.genetic_algorithm"):
+        with mock.patch("dgp.__main__.genetic_algorithm"):
             result = runner.invoke(cli, ["--layers-range", *test_layers_range])
 
         self.assertEqual(result.exit_code, 2, result.stdout)
         mock_dgplogger.configure_dgp_logger.assert_not_called()
 
-    @mock.patch("dgp.deep_g_prop.DGPLOGGER")
+    @mock.patch("dgp.__main__.DGPLOGGER")
     def test_cli_ok(self, mock_dgplogger):
         """Everything ok."""
         argv = [
@@ -77,7 +77,7 @@ class TestDeepGPropCli(unittest.TestCase):
             "info",
         ]
         runner = CliRunner()
-        with mock.patch("dgp.deep_g_prop.genetic_algorithm"):
+        with mock.patch("dgp.__main__.genetic_algorithm"):
             result = runner.invoke(cli, argv)
 
         mock_dgplogger.configure_dgp_logger.assert_called_once()

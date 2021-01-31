@@ -1,4 +1,4 @@
--r prod.txt
+-r ../requirements.txt
 -r tests.txt
 -r format.txt
 -r lint.txt

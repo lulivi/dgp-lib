@@ -73,7 +73,7 @@ To run DeepGProp first we need to install its cli. You can install it with
 
 
 ```shell
-pip install -U dgp-lib
+pip install -U DeepGProp
 ```
 
 Or downloading the repository with:

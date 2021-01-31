@@ -1,10 +1,10 @@
-import setuptools
+from setuptools import setup, find_packages
 
-VERSION = "1.0.4"
+VERSION = "1.0.5"
 LONG_DESC = open("README.md", encoding="utf-8").read()
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/v{VERSION}"
 
-setuptools.setup(
+setup(
     name="DeepGProp",
     version=VERSION,
     author="Luis Liñán",
@@ -22,7 +22,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["dgp"],
+    packages=find_packages(),
     include_package_data=True,
     package_data={"datasets": ["dgp/datasets/proben1/*"]},
     entry_points={

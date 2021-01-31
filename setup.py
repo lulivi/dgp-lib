@@ -1,7 +1,12 @@
 from setuptools import setup, find_packages
+try:
+    import pypandoc
+    LONG_DESC = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    LONG_DESC = open('README.md').read()
 
-VERSION = "1.0.5"
-LONG_DESC = open("README.md", encoding="utf-8").read()
+
+VERSION = "1.0.6"
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/v{VERSION}"
 
 setup(
@@ -10,7 +15,6 @@ setup(
     author="Luis Liñán",
     author_email="luislivilla@gmail.com",
     description="Train Multilayer Perceptrons with Genetic Algorithms.",
-    long_description_content_type="text/markdown",
     long_description=LONG_DESC,
     license="GPLv3",
     url="https://github.com/lulivi/dgp-lib",
@@ -21,6 +25,7 @@ setup(
         "Operating System :: POSIX :: Linux",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     packages=find_packages(),
     include_package_data=True,
@@ -31,7 +36,7 @@ setup(
             "d2p1=dgp.dataset_to_proben1:cli",
         ]
     },
-    python_requires=">=3.6",
+    python_requires=">=3.6,<3.9",
     install_requires=[
         "numpy==1.18.2",
         "pandas==1.0.3",

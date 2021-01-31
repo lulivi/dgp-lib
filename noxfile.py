@@ -118,7 +118,7 @@ def chdir(session: Session, dir_path: Path) -> Iterator[Path]:
 # -----------------------------------------------------------------------------
 # Tests
 # -----------------------------------------------------------------------------
-@session(python="3.7")
+@session(python=["3.6", "3.7", "3.8"])
 def test(session: Session) -> None:
     """Run the source code related tests."""
     test_path = session.posargs[0] if session.posargs else str(ROOT / "tests")
@@ -190,4 +190,5 @@ def lint(session: Session) -> None:
 @session(venv_backend="none")
 def deploy(session: Session) -> None:
     """Deploy the package to PYPI."""
-    session.run("python", "setup.py", "sdist", "upload", "-r", "pypi")
+    session.run("python", "setup.py", "sdist", "bdist_wheel")
+    session.run("twine", "upload", "-r", "pypi", "dist/*")

@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Intended Audience :: Education",
         "Intended Audience :: Science/Research",
-        "Topic :: Scientific/Engineering :: Artificial Intelligence"
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
     ],
     packages=find_packages(),
     include_package_data=True,

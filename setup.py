@@ -1,11 +1,6 @@
 from setuptools import setup, find_packages
-try:
-    import pypandoc
-    LONG_DESC = pypandoc.convert('README.md', 'rst')
-except(IOError, ImportError):
-    LONG_DESC = open('README.md').read()
 
-
+LONG_DESC = open("README.md", encoding="utf-8").read()
 VERSION = "1.0.6"
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/v{VERSION}"
 

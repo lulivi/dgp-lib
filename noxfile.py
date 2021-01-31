@@ -190,4 +190,8 @@ def lint(session: Session) -> None:
 @session(venv_backend="none")
 def deploy(session: Session) -> None:
     """Deploy the package to PYPI."""
-    session.run("python", "setup.py", "sdist", "upload", "-r", "pypi")
+    show_help(session, {"test": "Use testpypi instead of pypi repository."})
+    repository = "testpypi" if "test" in session.posargs else "pypi"
+    remove_files([ROOT / "dist"])
+    session.run("python", "setup.py", "sdist", "bdist_wheel")
+    session.run("twine", "upload", "-r", repository, f"dist/*")

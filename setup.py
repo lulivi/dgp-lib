@@ -1,9 +1,9 @@
 import setuptools
 
-VERSION = "1.0.1"
+VERSION = "1.0.3"
 LONG_DESC = open("README.md", encoding="utf-8").read()
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/{VERSION}"
-REQUIREMENTS = open("requirements/prod.txt").read().splitlines()
+REQUIREMENTS = open("requirements.txt").read().splitlines()
 
 setuptools.setup(
     name="DeepGProp",

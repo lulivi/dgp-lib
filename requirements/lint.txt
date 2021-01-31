@@ -1,4 +1,4 @@
--r prod.txt
+-r ../requirements.txt
 flake8==3.8.2
 pylint==2.5.2
 pycodestyle==2.6.0

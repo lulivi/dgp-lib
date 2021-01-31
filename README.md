@@ -100,7 +100,7 @@ undesirable ones for specific use of the repository:
 
 | Purpose    | File path                   | Description                                                                                     |
 | ---------- | --------------------------- | ----------------------------------------------------------------------------------------------- |
-| Production | [`requirements/prod.txt`]   | Necessary packages to run *DeepGProp*. The previous subsection already install this.            |
+| Production | [`requirements.txt`]        | Necessary packages to run *DeepGProp*. The previous subsection already install this.            |
 | Test       | [`requirements/tests.txt`]  | Necessary packages for tests. [Nox] installs them automaticly when running the tests.           |
 | Lint       | [`requirements/lint.txt`]   | Necessary packages for linting. [Nox] installs them automaticly when linting the code.          |
 | Format     | [`requirements/format.txt`] | Necessary packages for formatting. [Nox] installs them automaticly when running format command. |
@@ -169,7 +169,6 @@ nox -l
 The original code can be found in the [DeepGProp] repo.
 
 <!-- Archivos -->
-[`requirements/prod.txt`]: ./requirements/prod.txt
 [`requirements.txt`]: ./requirements.txt
 [`requirements/tests.txt`]: ./requirements/tests.txt
 [`requirements/hp_optimization.txt`]: ./requirements/hp_optimization.txt

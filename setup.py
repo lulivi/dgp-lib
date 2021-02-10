@@ -35,7 +35,7 @@ setup(
             "d2p1=dgp.dataset_to_proben1:cli",
         ]
     },
-    python_requires=">=3.6",
+    python_requires=">=3.6,<3.9",
     install_requires=[
         "tensorflow",
         "numpy>=1.18.2",

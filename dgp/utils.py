@@ -12,7 +12,7 @@ from dgp.settings import PROBEN1_DIR_PATH
 
 
 class DatasetNotFoundError(FileNotFoundError):
-    """Dataset path does not exist."""
+    """Path to dataset does not exist."""
 
 
 def read_proben1_partition(

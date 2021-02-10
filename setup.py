@@ -37,6 +37,7 @@ setup(
     },
     python_requires=">=3.6",
     install_requires=[
+        "tensorflow>=2.2",
         "numpy>=1.18.2",
         "pandas>=1.0.3",
         "deap>=1.3.1",

@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-"""Module with utility functions."""
+"""Module with assorted utility functions."""
 from pathlib import Path
 from typing import List, Set
 

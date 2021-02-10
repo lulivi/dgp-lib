@@ -25,8 +25,8 @@ jobs:
           python-version: "3.x"
       - name: Export neccesary variables
         run: |
-          echo "::set-env name=PYTHONPATH::${{github.workspace}}"
-          echo "::set-env name=KERAS_BACKEND::theano"
+          echo "PYTHONPATH=${{github.workspace}}" >> $GITHUB_ENV
+          echo "KERAS_BACKEND=theano"  >> $GITHUB_ENV
       - name: Install nox for executing tests
         run: pip install nox
       - name: Run src tests!

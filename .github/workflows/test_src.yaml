@@ -28,7 +28,9 @@ jobs:
           echo "PYTHONPATH=${{github.workspace}}" >> $GITHUB_ENV
           echo "KERAS_BACKEND=theano"  >> $GITHUB_ENV
       - name: Install nox for executing tests
-        run: pip install nox
+        run: |
+          pip install --upgrade pip
+          pip install nox
       - name: Run src tests!
         working-directory: ${{ github.workspace }}
         run: nox

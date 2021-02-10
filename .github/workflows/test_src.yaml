@@ -1,0 +1,34 @@
+# Run source tests
+name: Source code tests
+defaults:
+  run:
+    shell: bash
+
+on:
+  push:
+    branches: master
+    paths: "**/*.py"
+
+  pull_request:
+    branches: master
+    paths: "**/*.py"
+
+jobs:
+  test-src:
+    runs-on: ubuntu-18.04
+    name: Tests for the source code
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+      - name: Export neccesary variables
+        run: |
+          echo "::set-env name=PYTHONPATH::${{github.workspace}}"
+          echo "::set-env name=KERAS_BACKEND::theano"
+      - name: Install nox for executing tests
+        run: pip install nox
+      - name: Run src tests!
+        working-directory: ${{ github.workspace }}
+        run: nox -e test-src

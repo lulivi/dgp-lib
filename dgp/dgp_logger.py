@@ -1,4 +1,4 @@
-"""General logger."""
+"""Logs training results"""
 from datetime import datetime
 from logging import (
     DEBUG,

@@ -17,4 +17,4 @@ LOGS_DIR_PATH = SOURCE_DIR_PATH / "logs"
 LOGS_DIR_PATH.mkdir(exist_ok=True)
 
 # Globals
-SEED = int(environ.get("SEED", 12345))
+SEED = int(environ.get("SEED", 31415))

@@ -4,13 +4,12 @@ from typing import NamedTuple
 
 import numpy as np
 
-
 class Proben1Split(NamedTuple):
     """Represent a proben1 split of a partition (train/validation/test).
 
-    :ivar X: data of the split.
-    :ivar y: labels of the split.
-    :ivar y: labels of the split categorized.
+    :ivar X: partition data.
+    :ivar y: partition labels.
+    :ivar y: labels of the partition categorized.
 
     """
 

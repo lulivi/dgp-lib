@@ -119,6 +119,7 @@ def finished_generation_summary(
     :param current_generation: index of the generation.
     :param population: list of individuals of the current generation.
 
+    There's a linter error here, just don't pay attention
     """
     fits = np.array([ind.fitness.values for ind in population])
     table = [

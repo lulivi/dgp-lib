@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-"""Module with utility functions."""
+"""Module with assorted utility functions."""
 from pathlib import Path
 from typing import List, Set
 
@@ -13,7 +12,7 @@ from dgp.settings import PROBEN1_DIR_PATH
 
 
 class DatasetNotFoundError(FileNotFoundError):
-    """Dataset path does not exist."""
+    """Path to dataset does not exist."""
 
 
 def read_proben1_partition(
@@ -45,7 +44,7 @@ def read_proben1_partition(
             .resolve(strict=True)
         )
     except FileNotFoundError as error:
-        raise DatasetNotFoundError(f"Split not found: {error.filename}.")
+        raise DatasetNotFoundError(f"Partitioning not found: {error.filename}.")
 
     trn_data = pd.read_csv(trn_file)
     trn_labels = trn_data.pop("class")

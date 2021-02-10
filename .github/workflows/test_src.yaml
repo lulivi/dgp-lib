@@ -15,7 +15,7 @@ on:
 
 jobs:
   test-src:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     name: Tests for the source code
     steps:
       - uses: actions/checkout@v2

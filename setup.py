@@ -35,7 +35,7 @@ setup(
             "d2p1=dgp.dataset_to_proben1:cli",
         ]
     },
-    python_requires=">=3.6,<=3.9",
+    python_requires=">=3.6",
     install_requires=[
         "numpy>=1.18.2",
         "pandas>=1.0.3",

@@ -118,7 +118,7 @@ def chdir(session: Session, dir_path: Path) -> Iterator[Path]:
 # -----------------------------------------------------------------------------
 # Tests
 # -----------------------------------------------------------------------------
-@session(python=["3.6", "3.7", "3.8"])
+@session(python=["3.6", "3.7", "3.8", "3.9"])
 def test(session: Session) -> None:
     """Run the source code related tests."""
     test_path = session.posargs[0] if session.posargs else str(ROOT / "tests")

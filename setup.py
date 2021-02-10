@@ -39,7 +39,7 @@ setup(
     install_requires=[
         "numpy>=1.18.2",
         "pandas>=1.0.3",
-        "deap==1.3.1",
+        "deap>=1.3.1",
         "scikit-learn>=0.22.2.post1",
         "Theano-PyMC==1.0.10",
         "Keras>=2.3.1",

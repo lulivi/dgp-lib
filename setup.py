@@ -43,7 +43,7 @@ setup(
         "deap>=1.3.1",
         "scikit-learn>=0.22.2.post1",
         "Theano-PyMC==1.0.10",
-        "Keras>=2.3.1",
+        "Keras==2.3.1",
         "click==7.1.2",
         "tabulate==0.8.7",
     ],

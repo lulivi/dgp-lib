@@ -28,7 +28,7 @@ now we will run the following command to obtain the converted partitions:
 
    d2p1 datasets/mnist_train.csv
 
-we will end up with:
+we will end up (after a while) with:
 
 .. code::
 

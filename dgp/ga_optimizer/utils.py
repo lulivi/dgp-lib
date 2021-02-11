@@ -124,10 +124,10 @@ def finished_generation_summary(
     fits = np.array([ind.fitness.values for ind in population])
     table = [
         ["Statistic", "Accuracy error %", "Neuron/Layer score", "F2 score"],
-        ["Max", *fits.max(0)],
-        ["Avg", *fits.mean(0)],
-        ["Min", *fits.min(0)],
-        ["Std", *fits.std(0)],
+        ["Max", *np.asarray(fits.max(0))],
+        ["Avg", *np.asarray(fits.mean(0))],
+        ["Min", *np.asarray(fits.min(0))],
+        ["Std", *np.asarray(fits.std(0))],
         ["Best", *best_fit],
     ]
     DGPLOGGER.info(f"    Summary of generation {current_generation}:")

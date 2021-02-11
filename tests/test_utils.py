@@ -8,6 +8,7 @@ import numpy as np
 from dgp import utils
 from dgp.settings import PROBEN1_DIR_PATH
 
+
 class Proben1Tests(unittest.TestCase):
     """Test proben1 functions."""
 
@@ -102,6 +103,7 @@ class Proben1Tests(unittest.TestCase):
         utils.print_data_summary(data, labels, "test", mock_print)
 
         self.assertEqual(mock_print.call_count, 6)
+
 
 if __name__ == "__main__":
     unittest.main()

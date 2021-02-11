@@ -4,6 +4,7 @@ from typing import NamedTuple
 
 import numpy as np
 
+
 class Proben1Split(NamedTuple):
     """Represent a proben1 split of a partition (train/validation/test).
 

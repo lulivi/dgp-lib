@@ -1,3 +1,5 @@
+
+
 Final Degree Project: *DeepGProp*
 =================================
 
@@ -6,35 +8,22 @@ Final Degree Project: *DeepGProp*
 -  **Author: Luis Liñán Villafranca**
 -  **Mentor: Juan Julián Merelo Guervós**
 
-Index
------
+----
 
--  `Index <#index>`__
--  `Installation <#installation>`__
+.. contents:: **Table of contents**
+   :depth: 2
 
-   -  `Virtual environment creation <#virtual-environment-creation>`__
-   -  `Installing the DeepGProp CLI <#installing-the-deepgprop-cli>`__
-   -  `Extra modules <#extra-modules>`__
-
--  `Tests and formatting <#tests-and-formatting>`__
--  `Frameworks <#frameworks>`__
--  `Utilidades <#utilidades>`__
--  `Licencia <#licencia>`__
-
---------------
+----
 
 Installation
 ------------
 
-The first prerequisite is to have `Python
-3.6, 3.7 or 3.8 <https://www.python.org/downloads/>`__ and
-`pip <https://pypi.org/project/pip/>`__ installed on the system. It is
-recommended to create a virtual environment to isolate the used package
-versions. For more information about
-`pip <https://pypi.org/project/pip/>`__ and
-`venv <https://docs.python.org/3/library/venv.html>`__ check the
-`official
-tutorial <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`__.
+The first prerequisite is to have `Python 3.6, 3.7 or 3.8
+<https://www.python.org/downloads/>`_ and pip_
+installed on the system. It is recommended to create a virtual environment to
+isolate the used package versions. For more information about pip_ and `venv
+<https://docs.python.org/3/library/venv.html>`_ check the `official tutorial
+<https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_.
 
 Virtual environment creation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,18 +52,23 @@ unexpected place.
 This will create a virtual environment in the ``.venv`` directory. Once
 that’s been done, we need to activate it; use one of the following
 commands (depending on the interpreter) (obtained from the official
-`venv <https://docs.python.org/3/library/venv.html>`__ documentation):
+`venv <https://docs.python.org/3/library/venv.html>`_ documentation):
 
-======== =============== =======================================
-Platform Shell           Command to activate virtual environment
-======== =============== =======================================
-POSIX    bash/zsh        ``$ source <venv>/bin/activate``
-         fish            ``$ . <venv>/bin/activate.fish``
-         csh/tcsh        ``$ source <venv>/bin/activate.csh``
-         PowerShell Core ``$ <venv>/bin/Activate.ps1``
-Windows  cmd.exe         ``C:\> <venv>\Scripts\activate.bat``
-         PowerShell      ``PS C:\> <venv>\Scripts\Activate.ps1``
-======== =============== =======================================
++--------+---------------+---------------------------------------+
+|Platform|Shell          |Command to activate virtual environment|
++========+===============+=======================================+
+|POSIX   |bash/zsh       |``$ source <venv>/bin/activate``       |
+|        +---------------+---------------------------------------+
+|        |fish           |``$ . <venv>/bin/activate.fish``       |
+|        +---------------+---------------------------------------+
+|        |csh/tcsh       |``$ source <venv>/bin/activate.csh``   |
+|        +---------------+---------------------------------------+
+|        |PowerShell Core|``$ <venv>/bin/Activate.ps1``          |
++--------+---------------+---------------------------------------+
+|Windows |cmd.exe        |``C:\> <venv>\Scripts\activate.bat``   |
+|        +---------------+---------------------------------------+
+|        |PowerShell     |``PS C:\> <venv>\Scripts\Activate.ps1``|
++--------+---------------+---------------------------------------+
 
 Table 1.1: *Activating the virtual environment.*
 
@@ -106,8 +100,7 @@ add the option ``-e/--editable`` to the installation command:
 
    pip install -e .
 
-After installing it, we will be able to use it through the command
-``dgp``. You can run ``dgp --help`` to list the available options.
+Checkout `usage <#usage>`_ section for further use of the tool.
 
 Extra modules
 ~~~~~~~~~~~~~
@@ -118,16 +111,15 @@ installing undesirable ones for specific use of the repository:
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
 | Purpose | File path               | Description                                                                                      |
 +=========+=========================+==================================================================================================+
-| Test    | requirements/tests.txt  | Necessary packages for tests. `Nox`_ installs them automaticly when running the tests.           |
+| Test    | requirements/tests.txt  | Necessary packages for tests. Nox_ installs them automaticly when running the tests.           |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
-| Lint    | requirements/lint.txt   | Necessary packages for linting. `Nox`_ installs them automaticly when linting the code.          |
+| Lint    | requirements/lint.txt   | Necessary packages for linting. Nox_ installs them automaticly when linting the code.          |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
-| Format  | requirements/format.txt | Necessary packages for formatting. `Nox`_ installs them automaticly when running format command. |
+| Format  | requirements/format.txt | Necessary packages for formatting. Nox_ installs them automaticly when running format command. |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
 | Dev     | requirements/dev.txt    | All above packages.                                                                              |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
 
-.. _Nox: https://nox.thea.codes/en/stable
 
 To install any of these packages you can run:
 
@@ -139,15 +131,23 @@ If you are not using any virtual environment, make sure you install
 these packages so that they are available in the required Python
 version.
 
+Usage
+-----
+
+All the available options can be listed using:
+
+.. code:: shell
+
+   dgp --help
+
 Tests and formatting
 --------------------
 
 .. note:: To be able to run the DeepGProp tests, you will need to
    install it in editable mode. checkout in `Installing the DeepGProp
-   CLI <#installing-the-deepgprop-cli>`__ section how to do it.
+   CLI <#installing-the-deepgprop-cli>`_ section how to do it.
 
-First, we need to install the
-`Nox <https://nox.thea.codes/en/stable/>`__ tool:
+First, we need to install the Nox_ tool:
 
 .. code:: shell
 
@@ -174,27 +174,30 @@ You can check all the possible sessions with the following command:
 Frameworks
 ----------
 
--  `Keras <https://keras.io/>`__ - base library to create and run the
+-  `Keras <https://keras.io/>`_ - base library to create and run the
    neural networks.
 
--  `DEAP <https://deap.readthedocs.io/en/master/>`__ - genetic
+-  `DEAP <https://deap.readthedocs.io/en/master/>`_ - genetic
    algorithms library used to optimize the models hyper parametters.
 
-Utilidades
-----------
+Utilities
+---------
 
 -  Automation:
 
-   -  `Nox <https://nox.thea.codes/en/stable/>`__ - automation tool to
+   -  Nox_ - automation tool to
       run different tasks as the tests or the code formatting check.
 
 -  Tests:
 
-   -  `pytest <https://docs.pytest.org/en/latest/>`__ - Python test
+   -  `pytest <https://docs.pytest.org/en/latest/>`_ - Python test
       framework to run the tests.
 
-Licencia
---------
+Licence
+-------
 
 The original code can be found in the `DeepGProp
-<https://github.com/lulivi/dgp-lib>`__ repo under GPLv3 License.
+<https://github.com/lulivi/dgp-lib>`_ repo under GPLv3 License.
+
+.. _pip: https://pypi.org/project/pip/
+.. _Nox: https://nox.thea.codes/en/stable

@@ -25,6 +25,13 @@ isolate the used package versions. For more information about pip_ and `venv
 <https://docs.python.org/3/library/venv.html>`_ check the `official tutorial
 <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_.
 
+If you are using `pyenv`, remember to compile your version with the `--enable-shared` configuration option:
+
+```shell
+env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.6
+```
+
+
 Virtual environment creation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

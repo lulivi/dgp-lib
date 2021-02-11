@@ -44,6 +44,10 @@ we will end up (after a while) with:
    ├── mnist_train3.val
    └── mnist_train.csv
 
+
+Remember to change `# label` to class, by hand if needed, since that's the format expected by `dgp`.
+
+
 Loading it into DeepGProp
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 

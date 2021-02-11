@@ -1,9 +1,11 @@
 
 
-Final Degree Project: *DeepGProp*
+*DeepGProp*
 =================================
 
    Neural Networks optimization with Genetic Algorithms
+
+Based on the BSc thesis by
 
 -  **Author: Luis Liñán Villafranca**
 -  **Mentor: Juan Julián Merelo Guervós**
@@ -199,6 +201,11 @@ Utilities
 
    -  `pytest <https://docs.pytest.org/en/latest/>`_ - Python test
       framework to run the tests.
+
+Datasets
+--------
+
+All datasets need to have a first row with the column names, and one of the columns needs to be named `class`. For the time being, it's prepared to run only classification problems.
 
 Licence
 -------

@@ -1,4 +1,5 @@
 """Multilayer perceptron testing with Keras."""
+from pathlib import Path
 from typing import Tuple
 
 import click
@@ -34,8 +35,18 @@ DEF_VERBOSITY = "info"
     type=click.STRING,
     default=DEF_DATASET_NAME,
     help=(
-        "name of the proben1 partition located in dgp/datasets/. Default: "
+        "name of the proben1 partitions location. Default: "
         f"'{DEF_DATASET_NAME}'"
+    ),
+)
+@click.option(
+    "-dp",
+    "--dataset-dir-path",
+    type=Path,
+    default=None,
+    help=(
+        "full path to where the dataset partitions are located. Default: "
+        "'None'"
     ),
 )
 @click.option(
@@ -143,11 +154,12 @@ DEF_VERBOSITY = "info"
     "--seed",
     type=click.INT,
     default=SEED,
-    help="stream handler verbosity level.",
+    help="seed to initialize semi-random operations.",
 )
 # pylint: disable=too-many-arguments,too-many-locals
 def cli(
     dataset_name: str,
+    dataset_dir_path: click.Path,
     init_pop: int,
     max_gen: int,
     neurons_range: Tuple[int, int],
@@ -182,7 +194,6 @@ def cli(
 
     """
     if neurons_range[0] < 2 or neurons_range[0] > neurons_range[1]:
-        print("antonioooo")
         raise click.BadParameter(
             "Wrong neurons range given. It must be inside the range [2, inf). "
             f"Given: '{neurons_range}'.",
@@ -196,8 +207,15 @@ def cli(
             param_hint="--neurons-range",
         )
 
+    proben1_reader_args = {"dataset_name": dataset_name}
+
+    if dataset_dir_path and dataset_dir_path.is_dir():
+        proben1_reader_args["datasets_dir_path"] = dataset_dir_path.resolve()
+
     try:
-        dataset: Proben1Partition = read_proben1_partition(dataset_name)
+        dataset: Proben1Partition = read_proben1_partition(
+            **proben1_reader_args
+        )
     except DatasetNotFoundError as error:
         raise click.BadParameter(
             "Could not find some or any of the partition provided by "

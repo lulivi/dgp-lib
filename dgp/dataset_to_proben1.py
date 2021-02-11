@@ -5,6 +5,7 @@ import click
 import numpy as np
 import pandas as pd
 
+from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import shuffle
 
 from dgp.settings import SEED
@@ -14,7 +15,14 @@ from dgp.settings import SEED
 @click.argument(
     "file_path", type=Path,
 )
-def cli(file_path: Path):
+@click.option(
+    "-s",
+    "--seed",
+    type=click.INT,
+    default=SEED,
+    help="seed to initialize semi-random shuffle.",
+)
+def cli(file_path: Path, seed: int):
     """Split a dataset into 3 proben1-like partitions.
 
     Split the dataset given by ``FILE_PATH`` into 3 partitions of train (trn),
@@ -30,13 +38,14 @@ def cli(file_path: Path):
             param_hint="FILE_PATH",
         )
 
-    np.random.seed(SEED)
+    np.random.seed(seed)
 
     dataset_path = file_path.resolve()
     dataset_directory = dataset_path.parent
     dataset_name = dataset_path.stem
 
     dataframe = pd.read_csv(str(file_path), dtype=str)
+    dataframe["class"] = LabelEncoder().fit_transform(dataframe["class"])
     header = ",".join(list(dataframe.columns))
 
     for partition in range(1, 4):
@@ -51,6 +60,7 @@ def cli(file_path: Path):
             fmt="%s",
             delimiter=",",
             header=header,
+            comments="",
         )
         np.savetxt(
             str(dataset_directory / f"{dataset_name}{partition}.val"),
@@ -58,6 +68,7 @@ def cli(file_path: Path):
             fmt="%s",
             delimiter=",",
             header=header,
+            comments="",
         )
         np.savetxt(
             str(dataset_directory / f"{dataset_name}{partition}.tst"),
@@ -65,6 +76,7 @@ def cli(file_path: Path):
             fmt="%s",
             delimiter=",",
             header=header,
+            comments="",
         )
 
 

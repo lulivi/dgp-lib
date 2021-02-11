@@ -100,7 +100,11 @@ add the option ``-e/--editable`` to the installation command:
 
    pip install -e .
 
-Checkout `usage <#usage>`_ section for further use of the tool.
+All the available options can be listed using:
+
+.. code:: shell
+
+   dgp --help
 
 Extra modules
 ~~~~~~~~~~~~~
@@ -131,14 +135,10 @@ If you are not using any virtual environment, make sure you install
 these packages so that they are available in the required Python
 version.
 
-Usage
------
+Tutorials
+---------
 
-All the available options can be listed using:
-
-.. code:: shell
-
-   dgp --help
+* `Runing DGP on the MNIST dataset <docs/using_mnist_dataset.rst>`_
 
 Tests and formatting
 --------------------

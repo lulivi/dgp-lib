@@ -29,23 +29,19 @@ isolate the used package versions. For more information about pip_ and `venv
 
 If you are using `pyenv`, remember to compile your version with the `--enable-shared` configuration option:
 
-```shell
-env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.6
-```
-
-
-Virtual environment creation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 First, you need to install a version of python that’s been compiled with
 ``-fPIC``. ``pyenv`` versions by default are not, so you will need to
 issue something like this:
 
 .. code:: shell
+    env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.6
 
-   env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.9
 
-We can then use a core module to create the virtual environment, it’s
+
+Virtual environment creation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We can use a core module to create the virtual environment, it’s
 been working since version 3.3
 
 .. code:: shell

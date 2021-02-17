@@ -1,4 +1,4 @@
-"""Test the :mod:`dgp.ga_optimizer.utils` module."""
+"""Test the :mod:`dgp.ga_optimizer.types` module."""
 import unittest
 
 from unittest import mock

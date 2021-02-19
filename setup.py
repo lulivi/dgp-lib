@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 LONG_DESC = open("README.rst", encoding="utf-8").read()
-VERSION = "1.0.7"
+VERSION = "1.0.8"
 DOWNLOAD = f"https://github.com/lulivi/dgp-lib/releases/tag/v{VERSION}"
 
 setup(

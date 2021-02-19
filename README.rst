@@ -21,20 +21,21 @@ Installation
 ------------
 
 The first prerequisite is to have `Python 3.6, 3.7 or 3.8
-<https://www.python.org/downloads/>`_ and pip_
-installed on the system. It is recommended to create a virtual environment to
-isolate the used package versions. For more information about pip_ and `venv
-<https://docs.python.org/3/library/venv.html>`_ check the `official tutorial
+<https://www.python.org/downloads/>`_ and pip_ installed on the system. It is
+recommended to create a virtual environment to isolate the used package
+versions. For more information about pip_ and venv_ check the `official tutorial
 <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_.
 
-If you are using `pyenv`, remember to compile your version with the `--enable-shared` configuration option:
+If you are using `pyenv`, remember to compile your version with the
+`--enable-shared` configuration option:
 
 First, you need to install a version of python that’s been compiled with
 ``-fPIC``. ``pyenv`` versions by default are not, so you will need to
 issue something like this:
 
 .. code:: shell
-    env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.6
+
+   env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.6
 
 
 
@@ -57,7 +58,7 @@ unexpected place.
 This will create a virtual environment in the ``.venv`` directory. Once
 that’s been done, we need to activate it; use one of the following
 commands (depending on the interpreter) (obtained from the official
-`venv <https://docs.python.org/3/library/venv.html>`_ documentation):
+venv_ documentation):
 
 +--------+---------------+---------------------------------------+
 |Platform|Shell          |Command to activate virtual environment|
@@ -120,11 +121,11 @@ installing undesirable ones for specific use of the repository:
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
 | Purpose | File path               | Description                                                                                      |
 +=========+=========================+==================================================================================================+
-| Test    | requirements/tests.txt  | Necessary packages for tests. Nox_ installs them automaticly when running the tests.           |
+| Test    | requirements/tests.txt  | Necessary packages for tests. Nox_ installs them automaticly when running the tests.             |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
-| Lint    | requirements/lint.txt   | Necessary packages for linting. Nox_ installs them automaticly when linting the code.          |
+| Lint    | requirements/lint.txt   | Necessary packages for linting. Nox_ installs them automaticly when linting the code.            |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
-| Format  | requirements/format.txt | Necessary packages for formatting. Nox_ installs them automaticly when running format command. |
+| Format  | requirements/format.txt | Necessary packages for formatting. Nox_ installs them automaticly when running format command.   |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
 | Dev     | requirements/dev.txt    | All above packages.                                                                              |
 +---------+-------------------------+--------------------------------------------------------------------------------------------------+
@@ -201,7 +202,9 @@ Utilities
 Datasets
 --------
 
-All datasets need to have a first row with the column names, and one of the columns needs to be named `class`. For the time being, it's prepared to run only classification problems.
+All datasets need to have a first row with the column names, and one of the
+columns needs to be named `class`. For the time being, it's prepared to run only
+classification problems.
 
 Licence
 -------
@@ -211,3 +214,4 @@ The original code can be found in the `DeepGProp
 
 .. _pip: https://pypi.org/project/pip/
 .. _Nox: https://nox.thea.codes/en/stable
+.. _venv: https://docs.python.org/3/library/venv.html

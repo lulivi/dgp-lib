@@ -6,6 +6,7 @@ from typing import Callable, Tuple
 import numpy as np
 
 from deap import base
+from deap import tools
 
 from dgp.dgp_logger import DGPLOGGER
 from dgp.ga_optimizer.toolbox import individual_evaluator
@@ -121,16 +122,38 @@ def finished_generation_summary(
 
     There's a linter error here, just don't pay attention
     """
-    fits = np.array([ind.fitness.values for ind in population])
-    table = [
-        ["Statistic", "Accuracy error %", "Neuron/Layer score", "F2 score"],
-        ["Max", *np.asarray(fits.max(0))],
-        ["Avg", *np.asarray(fits.mean(0))],
-        ["Min", *np.asarray(fits.min(0))],
-        ["Std", *np.asarray(fits.std(0))],
-        ["Best", *best_fit],
-    ]
     DGPLOGGER.info(f"    Summary of generation {current_generation}:")
+
+    header = [
+        "Ranking",
+        "Accuracy error %",
+        "Neuron/Layer score",
+        "F2 score",
+    ]
+    half_population = len(population) // 2
+    n_individuals_showcase = half_population if half_population < 6 else 5
+    sorted_population = tools.selBest(population, len(population))
+
+    table = [header]
+
+    # Best first n individuals
+    for index, individual in enumerate(
+        sorted_population[:n_individuals_showcase]
+    ):
+        table.append([str(index + 1), *individual.fitness.values])
+
+    DGPLOGGER.info(f"Best {n_individuals_showcase} individuals:")
+    print_table(table, DGPLOGGER.info, floatfmt=(None, ".2f", ".2f", ".5f"))
+
+    table = [header]
+
+    # Start from the end and get the 3 worst individuals
+    for index, individual in enumerate(
+        sorted_population[: -(n_individuals_showcase + 1) : -1]
+    ):
+        table.append([str(index + 1), *individual.fitness.values])
+
+    DGPLOGGER.info(f"Worst {n_individuals_showcase} individuals:")
     print_table(table, DGPLOGGER.info, floatfmt=(None, ".2f", ".2f", ".5f"))
 
 
